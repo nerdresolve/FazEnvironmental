@@ -1,0 +1,13 @@
+{
+  "name": "faz-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter ./apps/* run dev",
+    "build": "pnpm --filter ./apps/frontend run build && pnpm --filter ./apps/backend run build",
+    "start": "pnpm --filter ./apps/backend run start"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
