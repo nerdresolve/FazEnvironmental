@@ -1,5 +1,6 @@
 import ContactCtaButton from "./ContactCtaButton";
 import { CONTACT_SOURCES } from "../data/contactSources";
+import offshoreBgWebp from "../assets/metodo-faz-offshore.webp";
 
 const steps = [
   {
@@ -32,7 +33,11 @@ const stats = [
 
 export default function MetodoFazSection({ headingId }: { headingId?: string }) {
   return (
-    <div className="container">
+    <>
+      <div className="method-bg" aria-hidden="true">
+        <img src={offshoreBgWebp} alt="" loading="lazy" />
+      </div>
+      <div className="container">
       <div className="method-grid">
         <div className="method-heading">
           <span className="eyebrow eyebrow--light">Método FAZ</span>
@@ -61,14 +66,15 @@ export default function MetodoFazSection({ headingId }: { headingId?: string }) 
         </ol>
       </div>
 
-      <ul className="stats-row">
-        {stats.map((stat) => (
-          <li className="stat-block" key={stat.label}>
-            <div className="value">{stat.value}</div>
-            <div className="label">{stat.label}</div>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul className="stats-row">
+          {stats.map((stat) => (
+            <li className="stat-block" key={stat.label}>
+              <div className="value">{stat.value}</div>
+              <div className="label">{stat.label}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

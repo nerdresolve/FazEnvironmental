@@ -1,0 +1,34 @@
+FAZ — Estado do progresso (checkpoint)
+
+CONCLUÍDO NESTA SESSÃO:
+- Splash screen na primeira visita: logo com fade+escala, 3 anéis "ripple" verdes se expandindo, som de sonar (1x, sincronizado com o primeiro anel, com destravamento por clique caso o navegador bloqueie autoplay), fade-out de 600ms no final.
+- Scroll-reveal (fade+subida) aplicado em todas as seções da home e nas páginas de serviço, via componente <Reveal> reutilizável (IntersectionObserver).
+- Logo faz.svg comprimida via SVGO (97.8KB -> 73KB).
+- Compressão de vídeo do hero e correção do loop "corte seco" (desktop 18s).
+- .gitignore criado e higienizado: node_modules, dist, logs de consentimento reais (mantida só a pasta via .gitkeep), .env, vídeos brutos de origem.
+- Push realizado 2x para o GitHub (mariathdev/faz, repo privado) usando token de acesso pessoal (guardado em .claude/.env, nunca commitado).
+- Imagem real (Wikimedia Commons, licença livre, sem marca de terceiros) aplicada na seção "Método FAZ" da home: foto de helicóptero + navio de apoio em plataforma offshore, como fundo com overlay escuro (apps/frontend/src/components/MetodoFazSection.tsx + estilos .method-bg em global.css). Build validado, compila sem erros.
+
+EM ANDAMENTO / PENDENTE (não commitado ainda no momento deste checkpoint):
+- Duas imagens já baixadas, comprimidas e salvas em apps/frontend/src/assets/, mas AINDA NÃO integradas no código:
+  - service-cpol-boom.jpg (barreira de contenção de óleo sendo rebocada) -> destino: header da página de serviço CPOL (/servicos/combate-poluicao-oleo)
+  - service-ics-firefighting.jpg/.webp (treinamento de combate a incêndio a bordo) -> destino: header da página de serviço ICS 100/200/300 (/servicos/ics-100-200-300)
+  - Falta: adicionar campo de imagem opcional em apps/frontend/src/data/serviceDetails.ts, e usar em apps/frontend/src/components/ServiceDetailLayout.tsx (hoje o hero dessas páginas é só fundo sólido escuro, sem imagem).
+- Sugestões de UX/UI ainda não aplicadas (usuário pediu para aplicar todas):
+  - Reposicionar/remover o hero-strip ("Resposta ambiental começa antes do incidente") que hoje fica espremido no rodapé do hero.
+  - Adicionar ícones temáticos nos 9 cards de serviço (hoje só número + texto, sem diferenciação visual).
+
+ARQUIVOS-CHAVE TOCADOS NESTA SESSÃO:
+- apps/frontend/src/components/SplashScreen.tsx
+- apps/frontend/src/components/Reveal.tsx + hooks/useScrollReveal.ts
+- apps/frontend/src/components/MetodoFazSection.tsx
+- apps/frontend/src/styles/global.css
+- apps/frontend/src/assets/faz.svg (comprimido)
+- apps/frontend/src/assets/sonar.mp3 (novo)
+- apps/frontend/src/assets/metodo-faz-offshore.webp (novo, já em uso)
+- apps/frontend/src/assets/service-cpol-boom.jpg + .webp removido (novo, AINDA NÃO em uso)
+- apps/frontend/src/assets/service-ics-firefighting.jpg/.webp (novo, AINDA NÃO em uso)
+- .gitignore, .claude/.env (token git, ignorado)
+
+PRÓXIMO PASSO SUGERIDO:
+Continuar a partir de "EM ANDAMENTO": adicionar campo de imagem em serviceDetails.ts, aplicar nos headers CPOL/ICS em ServiceDetailLayout.tsx, depois seguir para hero-strip e ícones dos cards.
