@@ -3,6 +3,7 @@ export interface Service {
   title: string;
   description: string;
   bullets: string[];
+  slug?: string;
 }
 
 export const services: Service[] = [
@@ -16,6 +17,7 @@ export const services: Service[] = [
       "Estratégias de contenção, recolhimento e gestão de resíduos",
       "Planejamento e execução de treinos de escala",
     ],
+    slug: "imo-i",
   },
   {
     number: "02",
@@ -27,6 +29,7 @@ export const services: Service[] = [
       "ICS 300: preparação de líderes para incidentes de maior escala",
       "Comando unificado, decisão e execução coordenada",
     ],
+    slug: "ics-100-200-300",
   },
   {
     number: "03",
@@ -38,6 +41,7 @@ export const services: Service[] = [
       "Manobras, comunicação e coordenação sob pressão",
       "Simulações de falhas e resposta operacional imediata",
     ],
+    slug: "resposta-offshore-pratica",
   },
   {
     number: "04",
@@ -71,6 +75,7 @@ export const services: Service[] = [
       "Procedimentos de contenção e segurança operacional",
       "Preparação para atuação segura e coordenada",
     ],
+    slug: "combate-poluicao-oleo",
   },
   {
     number: "07",
@@ -82,6 +87,7 @@ export const services: Service[] = [
       "Diagnóstico de risco e não conformidades",
       "Plano de ação técnico e recomendações e priorização",
     ],
+    slug: "oilrec-safety-check",
   },
   {
     number: "08",

@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
 import ContactCtaButton from "./ContactCtaButton";
 import { CONTACT_SOURCES } from "../data/contactSources";
+import { useAnchorNav } from "../hooks/useAnchorNav";
 import logo from "../assets/logo-white-full.png";
 import logoWebp from "../assets/logo-white-full.webp";
 
+const navLinks = [
+  { id: "solucoes", label: "Soluções" },
+  { id: "metodo-faz", label: "Método FAZ" },
+  { id: "sobre", label: "Sobre" },
+];
+
 export default function Footer() {
+  const goToAnchor = useAnchorNav();
+
   return (
     <footer className="site-footer">
       <div className="container">
@@ -19,15 +27,19 @@ export default function Footer() {
           <nav className="footer-col" aria-label="Navegação">
             <h2>Navegação</h2>
             <ul>
-              <li>
-                <Link to="/solucoes">Soluções</Link>
-              </li>
-              <li>
-                <Link to="/metodo-faz">Método FAZ</Link>
-              </li>
-              <li>
-                <Link to="/sobre">Sobre</Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`/#${link.id}`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      goToAnchor(link.id);
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="footer-col">

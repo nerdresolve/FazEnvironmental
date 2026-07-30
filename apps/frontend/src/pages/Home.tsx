@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import ContactCtaButton from "../components/ContactCtaButton";
+import HeroVideo from "../components/HeroVideo";
+import Reveal from "../components/Reveal";
 import ServicesSection from "../components/ServicesSection";
+import MetodoFazSection from "../components/MetodoFazSection";
+import SobreSection from "../components/SobreSection";
 import CtaBanner from "../components/CtaBanner";
 import NextStepCta from "../components/NextStepCta";
 import { CONTACT_SOURCES } from "../data/contactSources";
 import { organizationJsonLd } from "../data/organizationJsonLd";
-import heroBg from "../assets/hero-background.jpg";
-import heroBgWebp from "../assets/hero-background.webp";
 
 const heroStats = [
   { value: "+15", label: "anos de experiência em emergência" },
@@ -23,26 +25,27 @@ export default function Home() {
         path="/"
         jsonLd={organizationJsonLd}
       />
-      <section className="hero">
+      <section className="hero hero--video">
+        <HeroVideo />
         <div className="container">
-          <div className="hero-copy">
-            <span className="eyebrow eyebrow--light">Environmental · Emergency · Offshore</span>
-            <h1>
+          <div className="hero-copy hero-copy--full">
+            <span className="eyebrow eyebrow--light hero-enter hero-enter-1">Environmental · Emergency · Offshore</span>
+            <h1 className="hero-enter hero-enter-2">
               Antecipamos riscos. Preparamos pessoas. <span className="accent">Protegemos operações.</span>
             </h1>
-            <p>
+            <p className="hero-enter hero-enter-3">
               Consultoria ambiental, capacitação técnica e prontidão operacional para organizações que não podem
               improvisar diante de uma emergência.
             </p>
-            <div className="hero-actions">
+            <div className="hero-actions hero-enter hero-enter-4">
               <ContactCtaButton source={CONTACT_SOURCES.hero} className="btn btn-primary">
                 Solicitar uma proposta
               </ContactCtaButton>
-              <Link className="btn btn-secondary" to="/solucoes">
+              <Link className="btn btn-secondary" to="/#solucoes">
                 Explorar soluções
               </Link>
             </div>
-            <ul className="hero-stats">
+            <ul className="hero-stats hero-enter hero-enter-5">
               {heroStats.map((stat) => (
                 <li className="hero-stat" key={stat.label}>
                   <div className="value">{stat.value}</div>
@@ -51,19 +54,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="hero-visual" aria-hidden="true">
-            <picture>
-              <source srcSet={heroBgWebp} type="image/webp" />
-              <img
-                src={heroBg}
-                alt=""
-                width={700}
-                height={580}
-                {...{ fetchpriority: "high" }}
-              />
-            </picture>
-          </div>
-          <div className="hero-strip container" style={{ padding: 0, gridColumn: "1 / -1" }}>
+          <div className="hero-strip">
             <span>Resposta ambiental começa antes do incidente</span>
             <ContactCtaButton source={CONTACT_SOURCES.heroStrip} className="btn-reset link-cta">
               Avalie a prontidão da sua operação →
@@ -72,15 +63,35 @@ export default function Home() {
         </div>
       </section>
 
-      <ServicesSection light />
+      <section className="section section-light" id="solucoes" aria-labelledby="solucoes-heading">
+        <Reveal>
+          <ServicesSection headingId="solucoes-heading" />
+        </Reveal>
+      </section>
 
       <section className="section">
         <div className="container">
-          <CtaBanner />
+          <Reveal>
+            <CtaBanner />
+          </Reveal>
         </div>
       </section>
 
-      <NextStepCta />
+      <section className="section method-section" id="metodo-faz" aria-labelledby="metodo-faz-heading">
+        <Reveal>
+          <MetodoFazSection headingId="metodo-faz-heading" />
+        </Reveal>
+      </section>
+
+      <section className="section" id="sobre" aria-labelledby="sobre-heading">
+        <Reveal>
+          <SobreSection headingId="sobre-heading" />
+        </Reveal>
+      </section>
+
+      <Reveal>
+        <NextStepCta />
+      </Reveal>
     </>
   );
 }

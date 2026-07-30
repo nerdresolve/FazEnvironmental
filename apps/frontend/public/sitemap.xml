@@ -5,16 +5,24 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://fazenvironmental.com.br/solucoes</loc>
+    <loc>https://fazenvironmental.com.br/servicos/combate-poluicao-oleo</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fazenvironmental.com.br/metodo-faz</loc>
+    <loc>https://fazenvironmental.com.br/servicos/ics-100-200-300</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fazenvironmental.com.br/sobre</loc>
-    <priority>0.6</priority>
+    <loc>https://fazenvironmental.com.br/servicos/imo-i</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fazenvironmental.com.br/servicos/oilrec-safety-check</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fazenvironmental.com.br/servicos/resposta-offshore-pratica</loc>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fazenvironmental.com.br/politica-de-privacidade</loc>

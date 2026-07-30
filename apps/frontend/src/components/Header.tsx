@@ -2,22 +2,24 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import ContactCtaButton from "./ContactCtaButton";
 import { CONTACT_SOURCES } from "../data/contactSources";
+import { useAnchorNav } from "../hooks/useAnchorNav";
 import logo from "../assets/logo-full.png";
 import logoWebp from "../assets/logo-full.webp";
 
 const navLinks = [
-  { to: "/solucoes", label: "Soluções" },
-  { to: "/metodo-faz", label: "Método FAZ" },
-  { to: "/sobre", label: "Sobre" },
+  { id: "solucoes", label: "Soluções" },
+  { id: "metodo-faz", label: "Método FAZ" },
+  { id: "sobre", label: "Sobre" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const goToAnchor = useAnchorNav();
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <header className="site-header">
@@ -31,9 +33,16 @@ export default function Header() {
 
         <nav id="site-nav" className={`site-nav ${isMenuOpen ? "site-nav--open" : ""}`} aria-label="Navegação principal">
           {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} className={({ isActive }) => (isActive ? "active" : "")}>
+            <a
+              key={link.id}
+              href={`/#${link.id}`}
+              onClick={(event) => {
+                event.preventDefault();
+                goToAnchor(link.id);
+              }}
+            >
               {link.label}
-            </NavLink>
+            </a>
           ))}
           <ContactCtaButton source={CONTACT_SOURCES.header} className="btn btn-dark site-nav-cta">
             Fale com um consultor

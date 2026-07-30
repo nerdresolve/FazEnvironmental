@@ -21,6 +21,16 @@ app.use(express.json());
 app.use("/api", contactRouter);
 app.use("/api", consentRouter);
 
+const legacyAnchorRedirects: Record<string, string> = {
+  "/solucoes": "/#solucoes",
+  "/metodo-faz": "/#metodo-faz",
+  "/sobre": "/#sobre",
+};
+
+app.get(Object.keys(legacyAnchorRedirects), (req, res) => {
+  res.redirect(301, legacyAnchorRedirects[req.path]);
+});
+
 if (isProd) {
   const frontendDist = path.resolve(__dirname, "../../frontend/dist/client");
 

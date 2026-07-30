@@ -5,13 +5,14 @@ interface SectionHeaderProps {
   title: string;
   description: ReactNode;
   as?: "h1" | "h2";
+  headingId?: string;
 }
 
-export default function SectionHeader({ eyebrow, title, description, as: Heading = "h2" }: SectionHeaderProps) {
+export default function SectionHeader({ eyebrow, title, description, as: Heading = "h2", headingId }: SectionHeaderProps) {
   return (
     <div className="section-header">
       <span className="eyebrow">{eyebrow}</span>
-      <Heading>{title}</Heading>
+      <Heading id={headingId}>{title}</Heading>
       <p>{description}</p>
     </div>
   );

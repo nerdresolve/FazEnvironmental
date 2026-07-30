@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build output
+apps/frontend/dist/
+apps/backend/dist/
+apps/frontend/tsconfig.tsbuildinfo
+
+# Raw source videos (pre-compression originals, not needed in the bundle)
+apps/frontend/src/assets/source/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Data with real visitor/lead information (kept as empty folders via .gitkeep)
+apps/backend/data/consent-logs/*
+!apps/backend/data/consent-logs/.gitkeep
+apps/backend/data/leads.json
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
