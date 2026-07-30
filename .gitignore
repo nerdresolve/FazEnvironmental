@@ -13,6 +13,7 @@ apps/frontend/src/assets/source/
 .env
 .env.local
 .env.*.local
+.claude/.env
 
 # Data with real visitor/lead information (kept as empty folders via .gitkeep)
 apps/backend/data/consent-logs/*
