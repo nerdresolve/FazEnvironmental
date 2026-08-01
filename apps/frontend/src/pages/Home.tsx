@@ -54,14 +54,17 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="hero-strip">
-            <span>Resposta ambiental começa antes do incidente</span>
-            <ContactCtaButton source={CONTACT_SOURCES.heroStrip} className="btn-reset link-cta">
-              Avalie a prontidão da sua operação →
-            </ContactCtaButton>
-          </div>
         </div>
       </section>
+
+      <div className="hero-strip">
+        <div className="container hero-strip-inner">
+          <span>Resposta ambiental começa antes do incidente</span>
+          <ContactCtaButton source={CONTACT_SOURCES.heroStrip} className="btn-reset link-cta">
+            Avalie a prontidão da sua operação →
+          </ContactCtaButton>
+        </div>
+      </div>
 
       <section className="section section-light" id="solucoes" aria-labelledby="solucoes-heading">
         <Reveal>

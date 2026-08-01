@@ -6,6 +6,11 @@ export default function ServiceDetailLayout({ service, source }: { service: Serv
   return (
     <>
       <section className="section service-detail-hero">
+        {service.image && (
+          <div className="method-bg" aria-hidden="true">
+            <img src={service.image} alt="" loading="lazy" />
+          </div>
+        )}
         <div className="container">
           <span className="eyebrow eyebrow--light">{service.subtitle}</span>
           <h1>{service.title}</h1>

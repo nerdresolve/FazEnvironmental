@@ -1,14 +1,27 @@
+export type ServiceIconKey =
+  | "training"
+  | "command"
+  | "offshore"
+  | "drill"
+  | "coral"
+  | "oil-spill"
+  | "audit"
+  | "maintenance"
+  | "plan";
+
 export interface Service {
   number: string;
   title: string;
   description: string;
   bullets: string[];
   slug?: string;
+  icon: ServiceIconKey;
 }
 
 export const services: Service[] = [
   {
     number: "01",
+    icon: "training",
     title: "Treinamentos IMO I, II e III",
     description:
       "Formação progressiva para equipes operacionais, supervisores e gestão que atuam diante de riscos de óleo.",
@@ -21,6 +34,7 @@ export const services: Service[] = [
   },
   {
     number: "02",
+    icon: "command",
     title: "ICS 100, 200 e 300",
     description:
       "Capacitação para organizações que respondem, coordenam ou envolvem incidentes de escala e natureza variável.",
@@ -33,6 +47,7 @@ export const services: Service[] = [
   },
   {
     number: "03",
+    icon: "offshore",
     title: "Resposta a Emergência Offshore",
     description:
       "Treinamento prático e operacional a bordo para embarcações que confrontam cenários reais de emergência ambiental.",
@@ -45,6 +60,7 @@ export const services: Service[] = [
   },
   {
     number: "04",
+    icon: "drill",
     title: "Simulado de Resposta a Emergência",
     description:
       "Exercícios planejados sob medida para testar procedimentos, cadeia de comando, comunicação e capacidade de mobilização real.",
@@ -56,6 +72,7 @@ export const services: Service[] = [
   },
   {
     number: "05",
+    icon: "coral",
     title: "Laudo de Coral-Sol",
     description:
       "Análise técnica de registros de espécies aquáticas para identificação de organismos invasores do gênero Tubastraea.",
@@ -67,6 +84,7 @@ export const services: Service[] = [
   },
   {
     number: "06",
+    icon: "oil-spill",
     title: "Combate à Poluição por Óleo",
     description:
       "Curso de 8 horas focado em resposta operacional a derramamentos costeiros e de embarcações de risco.",
@@ -79,6 +97,7 @@ export const services: Service[] = [
   },
   {
     number: "07",
+    icon: "audit",
     title: "OilRec Safety Check",
     description:
       "Auditoria completa da planta Oil Recovery em embarcações OSRV, com foco em segurança, operacionalidade e manutenção.",
@@ -91,6 +110,7 @@ export const services: Service[] = [
   },
   {
     number: "08",
+    icon: "maintenance",
     title: "Manutenção de Equipamentos OilRec",
     description:
       "Suporte técnico especializado para prevenção de falhas, desempenho e segurança dos equipamentos de recuperação de óleo.",
@@ -102,6 +122,7 @@ export const services: Service[] = [
   },
   {
     number: "09",
+    icon: "plan",
     title: "Planos de Emergência e Estudos Técnicos",
     description:
       "Elaboração e revisão de Planos de Emergência Individual e documentos técnicos para operações e instalações aplicáveis.",

@@ -9,13 +9,14 @@ interface RevealProps {
 }
 
 export default function Reveal({ children, as: Tag = "div", className, delay = 0 }: RevealProps) {
-  const { ref, visible } = useScrollReveal<HTMLElement>();
+  const { ref, visible, isNarrowViewport } = useScrollReveal<HTMLElement>();
+  const effectiveDelay = isNarrowViewport ? 0 : delay;
 
   return (
     <Tag
       ref={ref}
       className={["reveal", visible ? "is-visible" : "", className].filter(Boolean).join(" ")}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      style={effectiveDelay ? { transitionDelay: `${effectiveDelay}ms` } : undefined}
     >
       {children}
     </Tag>

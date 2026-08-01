@@ -24,6 +24,7 @@ apps/backend/data/leads.json
 *.log
 npm-debug.log*
 pnpm-debug.log*
+/logs/
 
 # OS files
 Thumbs.db

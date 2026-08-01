@@ -1,0 +1,28 @@
+# FAZ Environmental & Emergency Consulting
+
+> Consultoria ambiental, capacitação técnica e prontidão operacional para organizações que não podem improvisar diante de uma emergência. Atuação em porto, costa e offshore, com foco em resposta a derramamento de óleo, gestão de incidentes e conformidade técnica.
+
+FAZ é uma consultoria brasileira com mais de 15 anos de experiência em emergência ambiental, especializada em capacitação técnica (treinamentos IMO e ICS), simulados de resposta, auditorias de equipamentos de recuperação de óleo (OilRec) e planos de emergência. Instrutores certificados internacionalmente pelo The Nautical Institute.
+
+## Páginas principais
+
+- [Home](https://fazenvironmental.com.br/): visão geral da empresa, método de trabalho e as 9 linhas de serviço.
+- [Método FAZ](https://fazenvironmental.com.br/#metodo-faz): metodologia de diagnóstico, capacitação e evolução progressiva de equipes.
+- [Sobre](https://fazenvironmental.com.br/#sobre): história e valores da empresa.
+
+## Serviços
+
+- [Treinamentos IMO I, II e III](https://fazenvironmental.com.br/servicos/imo-i): formação progressiva para equipes operacionais, supervisores e gestão que atuam diante de riscos de óleo. 24 horas, online e ao vivo.
+- [ICS 100, 200 e 300](https://fazenvironmental.com.br/servicos/ics-100-200-300): Sistema de Comando de Incidentes — capacitação para organizações que respondem, coordenam ou envolvem incidentes de escala e natureza variável. Online, ao vivo via Zoom.
+- [Resposta a Emergência Offshore](https://fazenvironmental.com.br/servicos/resposta-offshore-pratica): treinamento prático e presencial a bordo, 2 dias, para operação de equipamentos de resposta a vazamentos (barreiras e skimmers).
+- Simulado de Resposta a Emergência: exercícios sob medida para testar procedimentos, cadeia de comando e capacidade de mobilização.
+- Laudo de Coral-Sol: análise técnica de campo para identificação de espécies invasoras do gênero Tubastraea.
+- [Combate a Poluição por Óleo (CPOL)](https://fazenvironmental.com.br/servicos/combate-poluicao-oleo): curso de 8 horas, 100% online, focado em resposta operacional a derramamentos costeiros.
+- [OilRec Safety Check](https://fazenvironmental.com.br/servicos/oilrec-safety-check): auditoria técnica completa da planta de Oil Recovery (ORO) em embarcações OSRV.
+- Manutenção de Equipamentos OilRec: suporte técnico especializado em prevenção de falhas e conformidade dos equipamentos de recuperação de óleo.
+- Planos de Emergência e Estudos Técnicos: elaboração e revisão de Planos de Emergência Individual e documentos técnicos.
+
+## Outras informações
+
+- [Política de Privacidade](https://fazenvironmental.com.br/politica-de-privacidade)
+- [Sitemap](https://fazenvironmental.com.br/sitemap.xml)

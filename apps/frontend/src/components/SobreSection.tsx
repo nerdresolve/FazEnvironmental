@@ -1,5 +1,6 @@
 import ContactCtaButton from "./ContactCtaButton";
 import { CONTACT_SOURCES } from "../data/contactSources";
+import aboutImg from "../assets/about-response.webp";
 
 export default function SobreSection({ headingId }: { headingId?: string }) {
   return (
@@ -24,7 +25,9 @@ export default function SobreSection({ headingId }: { headingId?: string }) {
             Conheça quem constrói a FAZ →
           </ContactCtaButton>
         </div>
-        <div className="about-visual dot-grid-overlay" aria-hidden="true" />
+        <div className="about-visual dot-grid-overlay" aria-hidden="true">
+          <img src={aboutImg} alt="" loading="lazy" />
+        </div>
       </div>
     </div>
   );

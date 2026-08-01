@@ -1,3 +1,9 @@
+import cpolBoomImg from "../assets/service-cpol-boom.webp";
+import icsFirefightingImg from "../assets/service-ics-firefighting.webp";
+import imoIImg from "../assets/service-imo-i.webp";
+import oilrecAuditImg from "../assets/service-oilrec-audit.webp";
+import offshorePracticeImg from "../assets/service-offshore-practice.webp";
+
 export interface ServiceDetail {
   slug: string;
   title: string;
@@ -5,6 +11,7 @@ export interface ServiceDetail {
   summary: string;
   whatItDoes: string;
   scope: string[];
+  image?: string;
 }
 
 export const serviceDetails: ServiceDetail[] = [
@@ -24,6 +31,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Estratégias de contenção",
       "Gerenciamento de resíduos",
     ],
+    image: cpolBoomImg,
   },
   {
     slug: "ics-100-200-300",
@@ -38,6 +46,7 @@ export const serviceDetails: ServiceDetail[] = [
       "ICS 100/200: estrutura básica e resposta inicial",
       "ICS 300: gestão de incidentes de crescimento exponencial e planejamento estratégico",
     ],
+    image: icsFirefightingImg,
   },
   {
     slug: "imo-i",
@@ -56,6 +65,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Segurança operacional",
       "Lições aprendidas de incidentes reais",
     ],
+    image: imoIImg,
   },
   {
     slug: "oilrec-safety-check",
@@ -71,6 +81,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Avaliação de conformidade com critérios da Petrobras",
       "Emissão de relatório técnico detalhado com evidências fotográficas",
     ],
+    image: oilrecAuditImg,
   },
   {
     slug: "resposta-offshore-pratica",
@@ -85,6 +96,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Dia 1: montagem assistida e familiarização com equipamentos (barreiras e skimmers) no convés",
       "Dia 2: simulação completa de lançamento e resposta em campo",
     ],
+    image: offshorePracticeImg,
   },
 ];
 
