@@ -4,6 +4,7 @@ import { useAnchorNav } from "../hooks/useAnchorNav";
 import logo from "../assets/logo-white-full.png";
 import logoWebp from "../assets/logo-white-full.webp";
 
+import NerdResolveBadge from './NerdResolveBadge';
 const navLinks = [
   { id: "solucoes", label: "Soluções" },
   { id: "metodo-faz", label: "Método FAZ" },
@@ -66,6 +67,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <NerdResolveBadge />
     </footer>
   );
 }

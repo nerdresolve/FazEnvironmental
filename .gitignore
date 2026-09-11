@@ -14,6 +14,17 @@ apps/frontend/src/assets/source/
 .env.local
 .env.*.local
 .claude/.env
+infra/.env.tunnel
+github.env
+
+# Backups e temporários locais
+*.bak
+*.bak-*
+
+# Ferramental e checkpoints internos de sessão — não fazem parte do portfólio público
+.claude/
+progress.txt
+scripts/watchdog.ps1
 
 # Data with real visitor/lead information (kept as empty folders via .gitkeep)
 apps/backend/data/consent-logs/*

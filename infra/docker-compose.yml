@@ -1,0 +1,68 @@
+# Pilha do site da FAZ: aplicação (API + frontend) e túnel Cloudflare.
+#
+#   docker compose -f infra/docker-compose.yml up -d --build
+#
+# O túnel é a única porta de entrada pública: a aplicação não expõe porta
+# para fora do host. O `cloudflared` abre uma conexão de saída até a borda
+# da Cloudflare, então não é preciso abrir nada no firewall nem ter IP fixo.
+#
+# Antes do primeiro `up`, rode `node infra/cloudflare-setup.mjs` para criar o
+# túnel, a rota e o DNS, e gerar `infra/.env.tunnel`.
+#
+# `restart: unless-stopped` + Docker Desktop configurado para iniciar com o
+# Windows é o que mantém o site no ar sempre que o PC está ligado, sem
+# depender de watchdog nem Tarefa Agendada.
+#
+# `name` é declarado (diferente do padrão usado no projeto coral) porque
+# aqui a pasta também se chama `infra` — sem um nome de projeto próprio, o
+# Compose deriva o nome pela pasta e colide com o projeto de outro repositório
+# que usa o mesmo nome de diretório, adotando os containers uns dos outros.
+name: faz-main
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: apps/backend/Dockerfile
+    image: faz-app:latest
+    container_name: faz-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      LEAD_EMAIL_TO: ${LEAD_EMAIL_TO:-}
+    volumes:
+      # Leads e logs de consentimento sobrevivem a rebuild/recriação do
+      # contêiner — são dados reais de visitantes, não artefato de build.
+      - ../apps/backend/data:/app/apps/backend/data
+    # Sem `ports`: quem alcança a aplicação é o túnel, pela rede interna.
+    expose:
+      - "3001"
+    networks:
+      - faz
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: faz-tunnel
+    restart: unless-stopped
+    # `--no-autoupdate`: numa imagem de contêiner a atualização automática
+    # reinicia o processo sem controle nenhum. Atualiza-se puxando a imagem.
+    command: tunnel --no-autoupdate run
+    # O token vem de .env.tunnel via env_file. Compose so carrega `.env`
+    # automaticamente, entao declarar aqui evita ter que passar
+    # `--env-file .env.tunnel` em toda invocacao.
+    env_file:
+      - .env.tunnel
+    depends_on:
+      - app
+    networks:
+      - faz
+
+networks:
+  faz:
+    driver: bridge

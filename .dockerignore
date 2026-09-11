@@ -1,0 +1,10 @@
+node_modules
+**/node_modules
+**/dist
+.git
+.env
+.env.*
+.claude
+logs
+apps/backend/data/consent-logs/*
+apps/backend/data/leads.json
