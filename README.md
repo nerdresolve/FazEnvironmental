@@ -26,13 +26,13 @@ infra/        docker-compose e provisionamento do túnel Cloudflare
 A FAZ presta consultoria ambiental e treinamento técnico para operações que
 não têm margem para improviso diante de uma emergência: derramamento de óleo,
 resposta offshore, comando de incidentes. O site é a porta de entrada
-comercial — apresenta as nove frentes de atuação (treinamentos IMO, ICS,
+comercial. Apresenta as nove frentes de atuação (treinamentos IMO, ICS,
 resposta prática offshore, laudos, planos de emergência) e converte o
 visitante num lead qualificado.
 
 O formulário de contato valida os dados, grava o lead e dispara notificação
-por e-mail teams, sem depender de nenhum serviço de terceiro para isso —
-o próprio backend Express monta e envia o e-mail.
+por e-mail, sem depender de nenhum serviço de terceiro para isso. O próprio
+backend Express monta e envia o e-mail.
 
 ## As telas
 
@@ -42,8 +42,8 @@ o próprio backend Express monta e envia o e-mail.
 
 <table>
 <tr>
-<td width="50%"><img src="docs/telas/02-servico.webp" alt="Página de detalhe de um serviço"><br><sub><b>Serviço</b> · hero com imagem, escopo e CTA de proposta</sub></td>
-<td width="50%"><img src="docs/telas/03-mobile.webp" alt="Home no celular" width="60%"><br><sub><b>Mobile</b> · mesmo conteúdo em uma coluna</sub></td>
+<td width="50%"><img src="docs/telas/02-servico.webp" alt="Página de detalhe de um serviço"><br><sub><b>Serviço</b>: hero com imagem, escopo e CTA de proposta</sub></td>
+<td width="50%"><img src="docs/telas/03-mobile.webp" alt="Home no celular" width="60%"><br><sub><b>Mobile</b>: mesmo conteúdo em uma coluna</sub></td>
 </tr>
 </table>
 
@@ -51,28 +51,28 @@ o próprio backend Express monta e envia o e-mail.
 
 ## Frontend
 
-React 19 com Vite. As rotas são pré-renderizadas em build (SSR + um passo de
+React 19 com Vite. As rotas são pré-renderizadas em build (SSR e um passo de
 prerender que grava o HTML de cada página), então o primeiro paint não
 depende de JavaScript.
 
 Decisões que sustentam a performance:
 
-* **Prerender de todas as rotas conhecidas** — home, política de privacidade
+* **Prerender de todas as rotas conhecidas**: home, política de privacidade
   e cada página de serviço viram HTML estático no build, servido direto pelo
   Express.
 * **Vídeo do hero comprimido e com poster**, para não bloquear o LCP.
 * **Splash screen na primeira visita** (uma vez por sessão, via
-  `sessionStorage`) com fade e som de sonar, destravado por clique se o
+  `sessionStorage`), com fade e som de sonar, destravado por clique se o
   navegador bloquear autoplay.
-* **Scroll-reveal** via `IntersectionObserver` num componente `<Reveal>`
+* **Scroll reveal** via `IntersectionObserver` num componente `<Reveal>`
   reutilizável, sem biblioteca de animação.
 * Ícones de serviço em SVG inline, desenhados no projeto.
 
 ```bash
 cd apps/frontend
 pnpm install
-pnpm dev                 # http://localhost:5173
-pnpm build                # tsc -b + vite build (client/SSR) + prerender
+pnpm dev                  # http://localhost:5173
+pnpm build                 # tsc -b + vite build (client/SSR) + prerender
 ```
 
 ### Onde mexer
@@ -89,24 +89,24 @@ pnpm build                # tsc -b + vite build (client/SSR) + prerender
 ## Backend
 
 API Express que serve duas funções: recebe o formulário de contato e o
-consentimento de cookies, e serve o frontend já buildado (estático +
-fallback de SPA) a partir do mesmo processo — não há servidor de frontend
+consentimento de cookies, e serve o frontend já buildado (estático, com
+fallback de SPA) a partir do mesmo processo. Não há servidor de frontend
 separado em produção.
 
 ```bash
 cd apps/backend
 pnpm install
-cp .env.example .env      # preencha as credenciais SMTP
-pnpm dev                  # http://localhost:3001
+cp .env.example .env       # preencha as credenciais SMTP
+pnpm dev                   # http://localhost:3001
 ```
 
 ### Leads e consentimento
 
-Cada envio do formulário é validado e gravado em `data/leads.json`; se as
+Cada envio do formulário é validado e gravado em `data/leads.json`. Se as
 credenciais SMTP estiverem configuradas, uma notificação por e-mail também é
-disparada. Sem SMTP configurado, o lead ainda é salvo — só o e-mail é pulado.
+disparada. Sem SMTP configurado, o lead ainda é salvo, só o e-mail é pulado.
 
-O consentimento de cookies (aceite/recusa do banner) é logado em
+O consentimento de cookies (aceite ou recusa do banner) é logado em
 `data/consent-logs/`, por data, para efeito de auditoria de LGPD.
 
 ---
@@ -126,7 +126,7 @@ docker compose -f infra/docker-compose.yml down
 quando eles quebram e quando o próprio Docker inicia, inclusive depois de
 reiniciar a máquina.
 
-O túnel Cloudflare é a única porta de entrada pública — a aplicação não
+O túnel Cloudflare é a única porta de entrada pública. A aplicação não
 expõe porta nenhuma para fora do host. Antes do primeiro `up`, rode
 `node infra/cloudflare-setup.mjs` para provisionar o túnel dedicado e o DNS
 (idempotente, seguro rodar de novo).
@@ -144,12 +144,21 @@ subida, e `.dockerignore`/`.gitignore` excluem todo arquivo de segredo.
 
 ## Licença
 
-© 2026 NerdResolve. Todos os direitos reservados.
+**© 2026 NerdResolve. Todos os direitos reservados.** Veja [LICENSE](LICENSE).
 
 O repositório é público para avaliação técnica e demonstração de portfólio. O
 código pode ser lido e estudado; não há licença de uso, cópia ou
-redistribuição. Ver [LICENSE](LICENSE).
+redistribuição. A marca **FAZ Environmental & Emergency Consulting** e o
+conteúdo institucional pertencem à titular.
 
-A marca, as fotografias e o conteúdo institucional da FAZ Environmental &amp;
-Emergency Consulting pertencem à titular e não são licenciados por este
-repositório.
+---
+
+<div align="center">
+
+<img src="docs/brand/logo.webp" alt="" width="120">
+
+**FAZ Environmental & Emergency Consulting**, desenvolvido por [NerdResolve](https://nerdresolve.com)
+
+Quer um site assim? **contact@nerdresolve.com**
+
+</div>
